@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Psychic</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+</head>
+<body>
+
+	<div>
+		<h3>Guess what letter I'm thinking
+		</h3>
+	</div>
+
+	<div>
+		<p> You guessed <span id="guess"></span>!</p>
+	</div>
+
+	<div>
+		<h5>Results</h5>
+		<p>Correct:  <span id="correct"></span>!</p>
+		<p>Incorrect: <span id="incorrect"> __</span>!</p>
+		<p>Guesses Remaining: <span id="remaining"></span>!</p>
+		<p>What you've guessed: <span id="guessList"></span></p>
+		<p>What the pooter guessed: <span id="computerGuessList"></span></p>
+		<p> <h2 id=gameOver style="display: none;"> Game Over </h2></p>
+		
+		
+	</div>
+
+
+
+<script type="text/javascript">
+	var userGuess = "", computerGuess = "", correctGuess = 0, incorrectGuess = 0, guessesLeft = 10, whatYouGuessed = "", whatComputerGuessed = "";
+	var legal = "abcdefghijklmnopqrstuvwxyz";
+	document.getElementById("remaining").innerHTML = guessesLeft;
+	document.getElementById("correct").innerHTML = correctGuess;
+	document.getElementById("incorrect").innerHTML = incorrectGuess;
+	document.getElementById("guessList").innerHTML = whatYouGuessed;
+	document.getElementById("computerGuessList").innerHTML = computerGuess;
+
+	function playGame () {
+
+			for (var i = 1; i < 11; i++) {
+				if (i === 10) {break;}
+				document.onkeyup = function(event) {
+
+				whatYouGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+				computerGuess = legal.charAt(Math.floor(Math.random() * legal.length));
+				
+
+
+				if (legal.indexOf(whatYouGuessed) > -1) {
+				document.getElementById("guess").innerHTML = whatYouGuessed;
+				document.getElementById("guessList").innerHTML += " " + whatYouGuessed;
+				document.getElementById("computerGuessList").innerHTML += " " + computerGuess;
+				guessesLeft = guessesLeft - 1;
+				document.getElementById("remaining").innerHTML = guessesLeft;
+					// evaluate
+					
+				};
+				if (computerGuess === whatYouGuessed) {
+							correctGuess = correctGuess + 1;
+							document.getElementById("correct").innerHTML = correctGuess;
+						} else {
+							incorrectGuess = incorrectGuess + 1;
+							document.getElementById("incorrect").innerHTML = incorrectGuess;
+						};
+
+
+			};
+		}
+
+			
+
+		}
+	playGame();
+
+
+	
+</script>
+</body>
+</html>
