@@ -2,34 +2,71 @@
 <html>
 <head>
 	<title>Psychic</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
 </head>
 <body>
+<div class="container-fluid">
 
-	<div>
-		<h3>Guess what letter I'm thinking
-		</h3>
+	<div class="row">
+
+			<div class="jumbotron col-10 offset-1" style="border-width: 2px; border: solid;">
+				<h3 class="text-center">Hi, I'm the Pooter: guess what letter I'm thinking!
+				</h3>
+			</div>
 	</div>
 
-	<div>
-		<p> You guessed <span id="guess"></span>!</p>
-	</div>
+<!-- 	<div>
+		
+	</div> -->
 
-	<div>
+	<div class="row">
+  <div class="col-sm-6">
+    <div class="card" style="border-width: 5px; border: solid;">
+      <div class="card-body">
+        <h4 class="card-title text-center" style="background-color: lightblue;">Your Guesses</h4>
+        <p class="card-text">
+        	<p> You guessed <span id="guess"></span>!</p>
+	        <p>Correct:  <span id="correct"></span>!</p>
+			<p>Incorrect: <span id="incorrect"> __</span>!</p>
+			<p>Guesses Remaining: <span id="remaining"></span>!</p>
+			<p>What you've guessed: <span id="guessList"></span></p>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card" style="border-width: 2px; border: solid;">
+      <div class="card-body">
+        <h4 class="card-title text-center" style="background-color: grey;">Pooter Picks</h4>
+        <p class="card-text">What the Pooter guessed: <span id="computerGuessList"></span></p>
+        <div id="gameOver" style="display: none;">
+			<h2> Game Over </h2> 
+			<button class="btn-danger" 	id="resetButton" onclick="resetGame()">reset</button>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 	<div>
+
 		<h5>Results</h5>
 		<p>Correct:  <span id="correct"></span>!</p>
 		<p>Incorrect: <span id="incorrect"> __</span>!</p>
 		<p>Guesses Remaining: <span id="remaining"></span>!</p>
 		<p>What you've guessed: <span id="guessList"></span></p>
-		<p>What the pooter guessed: <span id="computerGuessList"></span></p>
+		<p>What the Pooter guessed: <span id="computerGuessList"></span></p>
 		<div id="gameOver" style="display: none;">
 			<h2> Game Over </h2> 
 			<button id="resetButton" onclick="resetGame()">reset</button>
 		</div>
 		
 		
-	</div>
+	</div> -->
+
 
 
 
@@ -58,7 +95,7 @@
 	};
 	
 
-	function playGame () {
+	// function playGame () {
 
 		// for (i = 1; i < 11; i = i + 1) {
 				// if (i === 10) {break;}
@@ -70,7 +107,7 @@
 					
 				// for (i = 1; i < guessesLeft; i++) {
 
-					if (legal.indexOf(whatYouGuessed) > -1 && guessesLeft > 0) {
+					if (legal.indexOf(whatYouGuessed) > -1 && guessesLeft > -1) {
 						document.getElementById("guess").innerHTML = whatYouGuessed;
 						document.getElementById("guessList").innerHTML += " " + whatYouGuessed;
 						document.getElementById("computerGuessList").innerHTML += " " + computerGuess;
@@ -79,15 +116,16 @@
 						// evaluate
 						
 					};
-					if (computerGuess === whatYouGuessed && guessesLeft > 0) {
+					if (computerGuess === whatYouGuessed && guessesLeft > -1) {
 								correctGuess = correctGuess + 1;
 								document.getElementById("correct").innerHTML = correctGuess;
-							} else if (legal.indexOf(whatYouGuessed) > -1 && guessesLeft > 0) {
+							} else if (legal.indexOf(whatYouGuessed) > -1 && guessesLeft > -1) {
 								incorrectGuess = incorrectGuess + 1;
 								document.getElementById("incorrect").innerHTML = incorrectGuess;
 							};
 
 					if (guessesLeft === 0) {
+						guessesLeft = guessesLeft - 1;
 						document.getElementById("gameOver").style.display = "initial";
 
 					}
@@ -96,16 +134,17 @@
 				// };
 			};
 		// };
-	};
+	// };
 	
 			
 
 	
 
-	playGame();
+	// playGame();
 
 
 	
 </script>
+</div>
 </body>
 </html>

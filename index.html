@@ -2,21 +2,57 @@
 <html>
 <head>
 	<title>Psychic</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
 </head>
 <body>
+<div class="container-fluid">
 
-	<div>
-		<h3>Hi, I'm the Pooter: guess what letter I'm thinking!
-		</h3>
+	<div class="row">
+
+			<div class="jumbotron col-10 offset-1" style="border-width: 2px; border: solid;">
+				<h3 class="text-center">Hi, I'm the Pooter: guess what letter I'm thinking!
+				</h3>
+			</div>
 	</div>
 
-	<div>
-		<p> You guessed <span id="guess"></span>!</p>
-	</div>
+<!-- 	<div>
+		
+	</div> -->
 
-	<div>
+	<div class="row">
+  <div class="col-sm-6">
+    <div class="card" style="border-width: 5px; border: solid;">
+      <div class="card-body">
+        <h4 class="card-title text-center" style="background-color: lightblue;">Your Guesses</h4>
+        <p class="card-text">
+        	<p> You guessed <span id="guess"></span>!</p>
+	        <p>Correct:  <span id="correct"></span>!</p>
+			<p>Incorrect: <span id="incorrect"> __</span>!</p>
+			<p>Guesses Remaining: <span id="remaining"></span>!</p>
+			<p>What you've guessed: <span id="guessList"></span></p>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card" style="border-width: 2px; border: solid;">
+      <div class="card-body">
+        <h4 class="card-title text-center" style="background-color: grey;">Pooter Picks</h4>
+        <p class="card-text">What the Pooter guessed: <span id="computerGuessList"></span></p>
+        <div id="gameOver" style="display: none;">
+			<h2> Game Over </h2> 
+			<button class="btn-danger" 	id="resetButton" onclick="resetGame()">reset</button>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 	<div>
+
 		<h5>Results</h5>
 		<p>Correct:  <span id="correct"></span>!</p>
 		<p>Incorrect: <span id="incorrect"> __</span>!</p>
@@ -29,7 +65,8 @@
 		</div>
 		
 		
-	</div>
+	</div> -->
+
 
 
 
@@ -108,5 +145,6 @@
 
 	
 </script>
+</div>
 </body>
 </html>
