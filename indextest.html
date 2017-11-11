@@ -8,7 +8,7 @@
 <body>
 
 	<div>
-		<h3>Hi, I'm the Pooter: guess what letter I'm thinking!
+		<h3>Guess what letter I'm thinking
 		</h3>
 	</div>
 
@@ -22,7 +22,7 @@
 		<p>Incorrect: <span id="incorrect"> __</span>!</p>
 		<p>Guesses Remaining: <span id="remaining"></span>!</p>
 		<p>What you've guessed: <span id="guessList"></span></p>
-		<p>What the Pooter guessed: <span id="computerGuessList"></span></p>
+		<p>What the pooter guessed: <span id="computerGuessList"></span></p>
 		<div id="gameOver" style="display: none;">
 			<h2> Game Over </h2> 
 			<button id="resetButton" onclick="resetGame()">reset</button>
@@ -58,7 +58,7 @@
 	};
 	
 
-	// function playGame () {
+	function playGame () {
 
 		// for (i = 1; i < 11; i = i + 1) {
 				// if (i === 10) {break;}
@@ -70,7 +70,7 @@
 					
 				// for (i = 1; i < guessesLeft; i++) {
 
-					if (legal.indexOf(whatYouGuessed) > -1 && guessesLeft > -1) {
+					if (legal.indexOf(whatYouGuessed) > -1 && guessesLeft > 0) {
 						document.getElementById("guess").innerHTML = whatYouGuessed;
 						document.getElementById("guessList").innerHTML += " " + whatYouGuessed;
 						document.getElementById("computerGuessList").innerHTML += " " + computerGuess;
@@ -79,16 +79,15 @@
 						// evaluate
 						
 					};
-					if (computerGuess === whatYouGuessed && guessesLeft > -1) {
+					if (computerGuess === whatYouGuessed && guessesLeft > 0) {
 								correctGuess = correctGuess + 1;
 								document.getElementById("correct").innerHTML = correctGuess;
-							} else if (legal.indexOf(whatYouGuessed) > -1 && guessesLeft > -1) {
+							} else if (legal.indexOf(whatYouGuessed) > -1 && guessesLeft > 0) {
 								incorrectGuess = incorrectGuess + 1;
 								document.getElementById("incorrect").innerHTML = incorrectGuess;
 							};
 
 					if (guessesLeft === 0) {
-						guessesLeft = guessesLeft - 1;
 						document.getElementById("gameOver").style.display = "initial";
 
 					}
@@ -97,13 +96,13 @@
 				// };
 			};
 		// };
-	// };
+	};
 	
 			
 
 	
 
-	// playGame();
+	playGame();
 
 
 	
